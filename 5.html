@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Inverter String</title>
+  </head>
+  <body>
+    <label>Digite uma string: </label>
+    <input type="text" id="stringInput">
+    <button onclick="inverterString()">Inverter</button>
+    <br>
+    <label>String invertida: </label>
+    <span id="stringInvertida"></span>
+
+    <script>
+      function inverterString() {
+        // pega o valor digitado no input
+        let string = document.getElementById("stringInput").value;
+
+        // converte a string em uma array de caracteres
+        let caracteres = string.split("");
+
+        // inverte a ordem dos caracteres na array
+        for (let i = 0; i < Math.floor(caracteres.length / 2); i++) {
+          let j = caracteres.length - i - 1;
+          [caracteres[i], caracteres[j]] = [caracteres[j], caracteres[i]];
+        }
+
+        // converte a array de volta para uma string
+        let string_invertida = caracteres.join("");
+
+        // exibe a string invertida no span
+        document.getElementById("stringInvertida").textContent = string_invertida;
+      }
+    </script>
+  </body>
+</html>

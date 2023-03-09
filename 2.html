@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Verificar se um número pertence à sequência de Fibonacci</title>
+  </head>
+  <body>
+    <h1>Verificar se um número pertence à sequência de Fibonacci</h1>
+    <form>
+      <label for="num">Insira um número:</label>
+      <input type="number" id="num" name="num">
+      <button type="button" onclick="verificarFibonacci()">Verificar</button>
+    </form>
+    <p id="resultado"></p>
+    
+    <script>
+      function verificarFibonacci() {
+        const num = parseInt(document.getElementById("num").value);
+        let fib1 = 0;
+        let fib2 = 1;
+        
+        while (fib2 < num) {
+          const temp = fib2;
+          fib2 = fib1 + fib2;
+          fib1 = temp;
+        }
+        
+        if (fib2 === num) {
+          document.getElementById("resultado").innerHTML = `${num} pertence à sequência de Fibonacci.`;
+        } else {
+          document.getElementById("resultado").innerHTML = `${num} não pertence à sequência de Fibonacci.`;
+        }
+      }
+    </script>
+  </body>
+</html>
